@@ -1,0 +1,49 @@
+// Program for Calculating trip length and height
+
+#include <iostream>
+
+using namespace std;
+
+struct Trip{
+
+    char trip_name[20];
+
+    int length ,height;
+
+}trip[5];
+
+int main() {
+
+    int i;
+
+    int total_length =0;
+
+    int total_height=0;
+
+    for(i=0;i<5;i++){
+
+        cout<<"Enter trip details:"<< i+1<<"\n Trip_name, Length , Height \n ";
+
+        cin>>trip[i].trip_name>>trip[i].length>>trip[i].height;
+
+        total_height= total_height +trip[i].height;
+
+        total_length= total_length+trip[i].length;
+
+    }
+
+    cout << "Table of trips \n Trip \t Length \t Height \n";
+
+    for(i=0;i<5;i++){
+
+        cout<<trip[i].trip_name<<"\t\t\t"<<trip[i].length<<"\t\t\t"<<trip[i].height<<"\n";
+
+    }
+
+        cout<<"Total Length : "<<total_length <<"\n" ;
+
+        cout<<"Total Height: "<<total_height <<"\n" ;
+
+    return 0;
+
+}
