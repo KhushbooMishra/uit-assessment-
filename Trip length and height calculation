@@ -24,7 +24,7 @@ int main() {
     Trip trip[n];
     for(i=0;i<n;i++){
 
-        cout<<"\nEnter trip details:"<< i+1<<"\n Trip_name, Length , Height \n ";
+        cout<<"\nEnter trip details:"<< i+1;
         cout<<"\nEnter Trip Name:";
         cin>>trip[i].trip_name;
         cout<<"\nEnter Trip Length(km):";
@@ -39,7 +39,7 @@ int main() {
 
     }
 
-    cout << "\nTable of trips \n Trip \t Length \t Height \n";
+    cout << "\n----Details of trips---- \n Trip \t Length \t Height \n";
 
     for(i=0;i<n;i++){
 
@@ -47,7 +47,7 @@ int main() {
 
     }
 
-        cout<<"Total Length : "<<total_length <<"\n" ;
+        cout<<"Total Length (km): "<<total_length <<"\n" ;
 
         cout<<"Total Height: "<<total_height <<"\n" ;
 
