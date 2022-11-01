@@ -10,21 +10,28 @@ struct Trip{
 
     int length ,height;
 
-}trip[5];
+};
 
 int main() {
 
-    int i;
+    int i,n;
 
     int total_length =0;
 
     int total_height=0;
+    cout<<"Enter number of trips : ";
+    cin>>n;
+    Trip trip[n];
+    for(i=0;i<n;i++){
 
-    for(i=0;i<5;i++){
+        cout<<"\nEnter trip details:"<< i+1<<"\n Trip_name, Length , Height \n ";
+        cout<<"\nEnter Trip Name:";
+        cin>>trip[i].trip_name;
+        cout<<"\nEnter Trip Length(km):";
+        cin>>trip[i].length;
+        cout<<"\nEnter Trip Height:";
+        cin>>trip[i].height;
 
-        cout<<"Enter trip details:"<< i+1<<"\n Trip_name, Length , Height \n ";
-
-        cin>>trip[i].trip_name>>trip[i].length>>trip[i].height;
 
         total_height= total_height +trip[i].height;
 
@@ -32,9 +39,9 @@ int main() {
 
     }
 
-    cout << "Table of trips \n Trip \t Length \t Height \n";
+    cout << "\nTable of trips \n Trip \t Length \t Height \n";
 
-    for(i=0;i<5;i++){
+    for(i=0;i<n;i++){
 
         cout<<trip[i].trip_name<<"\t\t\t"<<trip[i].length<<"\t\t\t"<<trip[i].height<<"\n";
 
