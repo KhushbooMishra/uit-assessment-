@@ -1,0 +1,87 @@
+#include <iostream>
+#include <limits>
+
+using namespace std;
+
+struct Trip {
+
+    char trip_name[20];
+
+    double length, height;
+
+};
+
+double read_input(double i)
+{
+    double input;
+    bool valid = false;
+    while (!valid) { // repeat as long as the input is not valid
+       // cout << "Enter number: ";
+        cin >> input;
+        if (cin.fail())
+        {
+            cout << "Invalid input; please enter number" <<endl;
+
+            // clear error flags
+            cin.clear();
+            // Wrong input remains on the stream, so you need to get rid of it
+           // cin.ignore(INT_MAX, '\n');
+           cin.ignore(numeric_limits<streamsize>::max(),'\n');
+        }
+        else
+        {
+            valid = true;
+        }
+    }
+    cout<<"input" <<input;
+    return input;
+}
+
+
+
+int main() {
+     int i = 0;
+    int n;
+    int total_length = 0;
+
+    int total_height = 0;
+    cout<< "Enter number of trips : ";
+    cin>> n;
+    Trip trip[42];
+    char choice;
+    
+    do {
+
+        cout << "\nEnter Trip Name:";
+        cin >> trip[i].trip_name;
+        cout << "\nEnter Trip Length(km):";
+        cin >> trip[i].length;
+        read_input(trip[i].length);
+        cout << "\nEnter Trip Height:";
+        read_input(trip[i].height);
+        //cin >> trip[i].height;
+        total_height = total_height + trip[i].height;
+        total_length = total_length + trip[i].length;
+        cout << "Do yo want to continue(y/n);";
+        cin >> choice;
+        i++;
+
+    } while (choice == 'y' || choice == 'Y');
+
+    cout << "count value :" << i;
+    cout << "\n----Details of trips---- \n Trip \t\t\t Length (km)\t\t\t Height (km)\n";
+
+    for (int j = 0; j < i; j++) {
+
+        cout << trip[j].trip_name << "\t\t\t" << trip[j].length << "\t\t\t" << trip[j].height << "\n";
+
+    }
+
+   cout << "Total Length (km): " << total_length << "\n";
+
+    cout << "Total Height (km): " << total_height << "\n"; 
+
+   return 0;
+
+}
+
