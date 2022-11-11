@@ -1,0 +1,80 @@
+#include <iostream>
+#include <limits>
+
+using namespace std;
+
+struct Trip {          // Structure declaration
+
+    string trip_name[20];    // Member (string variable)
+
+    double length, height;   // Member (double variable)
+
+};
+
+//create function for validating length and height input  as number
+     double read_input()
+{
+    double input;
+    bool valid = false;
+    while (!valid) { // repeat as long as the input is not valid
+       cout << "Enter number: ";
+        cin >> input;
+        if (cin.fail())
+        {
+            cout << "Invalid input; please enter number" <<endl;
+            cin.clear();  // clear error flags
+           cin.ignore(numeric_limits<streamsize>::max(),'\n');  // Wrong input remains on the stream, so you need to get rid of it
+        }
+        else
+        {
+            valid = true;
+        }
+    }
+    return input;  
+}
+
+int main() {
+  
+    int i = 0;
+    int total_length = 0;
+    int total_height = 0;
+    Trip trip[42]; //Structure variable \ object
+    char choice;
+    
+    do {
+
+        cout << "\nEnter Trip Name: ";
+        cin >> trip[i].trip_name;
+        cout << "\nEnter Trip Length(km): ";
+        trip[i].length=read_input();  // call the function
+        cout << "\nEnter Trip Height: ";
+        trip[i].height=read_input();    // call the function
+        total_height = total_height + trip[i].height;
+        total_length = total_length + trip[i].length;
+        int k= i+1;
+        cout << "\n----Details of trips---- \n Trip \t\t\t Length (km)\t\t\t Height (km)\n";
+        for (int l =0; l < k; l++) {
+         cout << trip[l].trip_name << "\t\t\t" << trip[l].length << "\t\t\t" << trip[l].height << "\n";
+        }
+        cout << "\nDo yo want to continue(y/n):";
+        cin >> choice;
+        i++;
+
+    } while (choice == 'y' || choice == 'Y');
+
+    cout << "\n----Details of trips---- \n Trip \t\t\t Length (km)\t\t\t Height (km)\n";
+
+    for (int j = 0; j < i; j++) {
+        //cout<< "length" << trip[j].length;
+        cout << trip[j].trip_name << "\t\t\t" << trip[j].length << "\t\t\t" << trip[j].height << "\n";
+
+    }
+
+   cout << "\nTotal Length (km): " << total_length << "\n";
+
+    cout << "Total Height (km): " << total_height << "\n"; 
+
+   return 0;
+
+}
+
